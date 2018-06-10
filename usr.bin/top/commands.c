@@ -395,6 +395,7 @@ signame_to_signum(const char * sig)
 const char *
 kill_procs(char *str)
 {
+	const char *error_str;
     char *nptr;
     int signum = SIGTERM;	/* default */
     int procnum;
@@ -415,11 +416,10 @@ kill_procs(char *str)
 
 	if (isdigit(str[1]))
 	{
-	    scanint(str + 1, &signum);
-	    if (signum <= 0 || signum >= NSIG)
-	    {
-		return(invalid_signal_number);
-	    }
+		signum = (int)strtonum(str + 1, 0, NSIG, &error_str);
+		if (error_str != NULL) {
+			return(error_str);
+		}
 	}
 	else
 	{

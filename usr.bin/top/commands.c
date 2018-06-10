@@ -18,6 +18,7 @@
  *  "top" (i.e.:  changing the number of processes to display).
  */
 
+#include <sys/limits.h>
 #include <sys/resource.h>
 #include <sys/signal.h>
 
@@ -369,9 +370,7 @@ show_errors(void)
 }
 
 static const char no_proc_specified[] = " no processes specified";
-static const char invalid_signal_number[] = " invalid_signal_number";
 static const char bad_signal_name[] = " bad signal name";
-static const char bad_pri_value[] = " bad priority value";
 
 static int
 signame_to_signum(const char * sig)
@@ -465,38 +464,21 @@ kill_procs(char *str)
 const char *
 renice_procs(char *str)
 {
-    char negate;
+	const char *error_str;
     int prio;
     int procnum;
 
     ERR_RESET;
 
-    /* allow for negative priority values */
-    if ((negate = (*str == '-')) != 0)
-    {
-	/* move past the minus sign */
-	str++;
-    }
-
-    /* use procnum as a temporary holding place and get the number */
-    procnum = scanint(str, &prio);
-
-    /* negate if necessary */
-    if (negate)
-    {
-	prio = -prio;
-    }
-
-    /* check for validity */
-    if (procnum == -1 || prio < PRIO_MIN || prio > PRIO_MAX)
-    {
-	return(bad_pri_value);
-    }
+	prio = (int)strtonum(str, PRIO_MIN, PRIO_MAX, &error_str);
+	if (error_str != NULL) {
+		return (error_str);
+	}
 
     /* move to the first process number */
     if ((str = next_field(str)) == NULL)
     {
-	return(no_proc_specified);
+		return(no_proc_specified);
     }
 
     /* loop thru the process numbers, renicing each one */
@@ -513,7 +495,26 @@ renice_procs(char *str)
 	}
     } while ((str = next_field(str)) != NULL);
 
-    /* return appropriate error string */
-    return(err_string());
+	/* check process owner if we're not root */
+	else if (uid && (uid != proc_owner(procnum)))
+	{
+	    ERROR(str, EACCES);
+	}
+	else if (setpriority(PRIO_PROCESS, procnum, prio) == -1)
+	{
+	    ERROR(str, errno);
+	}
+    } while ((str = next_field(str)) != NULL);
+		procnum = (int)strtonum(str, 0, INT_MAX, &error_str);
+		if (error_str != NULL) {
+			ERROR(error_str, 0);
+		}
+		if (setpriority(PRIO_PROCESS, procnum, prio) == -1) {
+			ERROR(str, errno);
+		}
+	} while ((str = next_field(str)) != NULL);
+
+	/* return appropriate error string */
+	return(err_string());
 }
 

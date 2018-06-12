@@ -176,12 +176,12 @@ init_termcap(int interactive)
     /* set convenience strings */
     strncpy(home, tgoto(tc_cursor_motion, 0, 0), sizeof(home) - 1);
     home[sizeof(home) - 1] = '\0';
-    /* (lower_left is set in get_screensize) */
+    /* (lower_left is set in screen_getsize) */
 
     /* get the actual screen size with an ioctl, if needed */
     /* This may change screen_width and screen_length, and it always
        sets lower_left. */
-    get_screensize();
+    screen_getsize();
 
     /* if stdout is not a terminal, pretend we are a dumb terminal */
     if (tcgetattr(STDOUT_FILENO, &old_settings) == -1)
@@ -225,7 +225,7 @@ screen_init(void)
 }
 
 void
-end_screen(void)
+screen_end(void)
 {
     /* move to the lower left, clear the line and send "te" */
     if (smart_terminal)
@@ -260,7 +260,7 @@ rescreen_init(void)
 }
 
 void
-get_screensize(void)
+screen_getsize(void)
 {
     struct winsize ws;
 

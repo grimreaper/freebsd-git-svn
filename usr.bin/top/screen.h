@@ -58,9 +58,9 @@ void	top_standout(const char *msg);
 void	top_clear(void);
 void	go_home(void);
 void	rescreen_init(void);
-void	get_screensize(void);
+void	screen_getsize(void);
 void	init_termcap(int interactive);
-void	end_screen(void);
+void	screen_end(void);
 void	screen_init(void);
 
 #endif

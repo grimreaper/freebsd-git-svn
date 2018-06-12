@@ -762,7 +762,7 @@ restart:
 	    {
 		usleep(delay * 1e6);
 		if (leaveflag) {
-		    end_screen();
+		    screen_end();
 		    exit(0);
 		}
 	    }
@@ -778,13 +778,13 @@ restart:
 		timeout.tv_usec = 0;
 
 		if (leaveflag) {
-		    end_screen();
+		    screen_end();
 		    exit(0);
 		}
 
 		if (tstopflag) {
 		    /* move to the lower left */
-		    end_screen();
+		    screen_end();
 		    fflush(stdout);
 
 		    /* default the signal handler action */
@@ -806,7 +806,7 @@ restart:
 
 		if (winchflag) {
 		    /* reascertain the screen dimensions */
-		    get_screensize();
+		    screen_getsize();
 
 		    /* tell display to resize */
 		    max_topn = display_resize();
@@ -1253,6 +1253,6 @@ top_winch(int i __unused)		/* SIGWINCH handler */
 void __dead2
 quit(int status)		/* exit under duress */
 {
-    end_screen();
+    screen_end();
     exit(status);
 }

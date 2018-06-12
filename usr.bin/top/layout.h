@@ -32,6 +32,9 @@
  * $FreeBSD$
  */
 
+#ifndef _LAYOUT_H
+#define _LAYOUT_H
+
 extern int  x_lastpid;		/* 10 */
 extern int  y_lastpid;		/* 0 */
 extern int  x_loadave;		/* 33 */
@@ -57,3 +60,5 @@ extern int  y_idlecursor;	/* 5 */
 extern int  y_procs;		/* 7 */
 
 extern int  y_cpustates;	/* 2 */
+
+#endif

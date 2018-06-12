@@ -31,6 +31,9 @@
  * $FreeBSD$
  */
 
+#ifndef _DISPLAY_H
+#define _DISPLAY_H
+
 #define  MT_standout  1
 #define  MT_delayed   2
 
@@ -70,3 +73,5 @@ void	 u_process(int line, char *newline);
 void	 u_procstates(int total, int *brkdn);
 void	 u_swap(int *stats);
 void	 z_cpustates(void);
+
+#endif

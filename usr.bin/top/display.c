@@ -914,10 +914,10 @@ u_endscreen(int hi)
 		    lastline = screen_line;
 		}
 
-		if (clear_to_end)
+		if (tc_clear_to_end)
 		{
 		    /* we can do this the easy way */
-		    putcap(clear_to_end);
+		    putcap(tc_clear_to_end);
 		}
 		else
 		{

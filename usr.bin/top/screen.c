@@ -55,12 +55,12 @@ static char termcap_buf[1024];
 static char string_buffer[1024];
 static char home[15];
 static char lower_left[15];
-char *clear_line;
-static char *clear_screen;
-char *clear_to_end;
-char *cursor_motion;
-static char *start_standout;
-static char *end_standout;
+char *tc_clear_line;
+static char *tc_clear_screen;
+char *tc_clear_to_end;
+char *tc_cursor_motion;
+static char *tc_start_standout;
+static char *tc_end_standout;
 static char *terminal_init;
 static char *terminal_end;
 
@@ -152,29 +152,29 @@ init_termcap(int interactive)
     /* get "ce", clear to end */
     if (!overstrike)
     {
-	clear_line = tgetstr("ce", &bufptr);
+	tc_clear_line = tgetstr("ce", &bufptr);
     }
 
     /* get necessary capabilities */
-    if ((clear_screen  = tgetstr("cl", &bufptr)) == NULL ||
-	(cursor_motion = tgetstr("cm", &bufptr)) == NULL)
+    if ((tc_clear_screen  = tgetstr("cl", &bufptr)) == NULL ||
+	(tc_cursor_motion = tgetstr("cm", &bufptr)) == NULL)
     {
 	smart_terminal = false;
 	return;
     }
 
     /* get some more sophisticated stuff -- these are optional */
-    clear_to_end   = tgetstr("cd", &bufptr);
+    tc_clear_to_end   = tgetstr("cd", &bufptr);
     terminal_init  = tgetstr("ti", &bufptr);
     terminal_end   = tgetstr("te", &bufptr);
-    start_standout = tgetstr("so", &bufptr);
-    end_standout   = tgetstr("se", &bufptr);
+    tc_start_standout = tgetstr("so", &bufptr);
+    tc_end_standout   = tgetstr("se", &bufptr);
 
     /* pad character */
     PC = (PCptr = tgetstr("pc", &bufptr)) ? *PCptr : 0;
 
     /* set convenience strings */
-    strncpy(home, tgoto(cursor_motion, 0, 0), sizeof(home) - 1);
+    strncpy(home, tgoto(tc_cursor_motion, 0, 0), sizeof(home) - 1);
     home[sizeof(home) - 1] = '\0';
     /* (lower_left is set in get_screensize) */
 
@@ -231,7 +231,7 @@ end_screen(void)
     if (smart_terminal)
     {
 	putcap(lower_left);
-	putcap(clear_line);
+	putcap(tc_clear_line);
 	fflush(stdout);
 	putcap(terminal_end);
     }
@@ -277,7 +277,7 @@ get_screensize(void)
     }
 
 
-    (void) strncpy(lower_left, tgoto(cursor_motion, 0, screen_length - 1),
+    strncpy(lower_left, tgoto(tc_cursor_motion, 0, screen_length - 1),
 	sizeof(lower_left) - 1);
     lower_left[sizeof(lower_left) - 1] = '\0';
 }
@@ -287,9 +287,9 @@ top_standout(const char *msg)
 {
     if (smart_terminal)
     {
-	putcap(start_standout);
+	putcap(tc_start_standout);
 	fputs(msg, stdout);
-	putcap(end_standout);
+	putcap(tc_end_standout);
     }
     else
     {
@@ -302,7 +302,7 @@ top_clear(void)
 {
     if (smart_terminal)
     {
-	putcap(clear_screen);
+	putcap(tc_clear_screen);
     }
 }
 
@@ -311,9 +311,9 @@ clear_eol(int len)
 {
     if (smart_terminal && !overstrike && len > 0)
     {
-	if (clear_line)
+	if (tc_clear_line)
 	{
-	    putcap(clear_line);
+	    putcap(tc_clear_line);
 	    return(0);
 	}
 	else

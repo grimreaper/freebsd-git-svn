@@ -70,7 +70,7 @@ extern const char * myname;
 
 extern int (*compares[])(const void*, const void*);
 
-const char* kill_procs(char *);
+const char* kill_procs(const char *);
 const char* renice_procs(char *);
 
 extern char copyright[];

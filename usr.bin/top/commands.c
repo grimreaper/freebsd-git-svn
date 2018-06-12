@@ -414,7 +414,7 @@ signame_to_signum(const char * sig)
  */
 
 const char *
-kill_procs(char *str)
+kill_procs(const char *str)
 {
     char *nptr;
     int signum = SIGTERM;	/* default */

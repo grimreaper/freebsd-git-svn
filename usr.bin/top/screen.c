@@ -191,7 +191,7 @@ init_termcap(int interactive)
 }
 
 void
-init_screen(void)
+screen_init(void)
 {
     /* get the old settings for safe keeping */
     if (tcgetattr(STDOUT_FILENO, &old_settings) != -1)
@@ -244,7 +244,7 @@ end_screen(void)
 }
 
 void
-reinit_screen(void)
+rescreen_init(void)
 {
     /* install our settings if it is a terminal */
     if (is_a_terminal)

@@ -612,7 +612,7 @@ main(int argc, char *argv[])
 
     /* hold interrupt signals while setting up the screen and the handlers */
     old_sigmask = sigblock(Smask(SIGINT) | Smask(SIGQUIT) | Smask(SIGTSTP));
-    init_screen();
+    screen_init();
     signal(SIGINT, leave);
     signal(SIGQUIT, leave);
     signal(SIGTSTP, tstop);
@@ -798,7 +798,7 @@ restart:
 		    signal(SIGTSTP, tstop);
 
 		    /* reinit screen */
-		    reinit_screen();
+		    rescreen_init();
 		    reset_display();
 		    tstopflag = 0;
 		    goto restart;

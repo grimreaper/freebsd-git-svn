@@ -32,6 +32,9 @@
  * $FreeBSD$
  */
 
+#ifndef _SCREEN_H_
+#define _SCREEN_H_
+
 #define TCputs(str)	tputs(str, 1, putchar)
 #define putcap(str)	(void)((str) != NULL ? TCputs(str) : 0)
 #define Move_to(x, y)	TCputs(tgoto(tc_cursor_motion, x, y))
@@ -54,9 +57,10 @@ int		clear_eol(int len);
 void	top_standout(const char *msg);
 void	top_clear(void);
 void	go_home(void);
-void	reinit_screen(void);
+void	rescreen_init(void);
 void	get_screensize(void);
 void	init_termcap(int interactive);
 void	end_screen(void);
-void	init_screen(void);
+void	screen_init(void);
 
+#endif

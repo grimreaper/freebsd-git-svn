@@ -63,7 +63,7 @@ enum displaymodes { DISP_CPU = 0, DISP_IO, DISP_MAX };
 extern enum displaymodes displaymode;
 
 extern int pcpu_stats;
-extern int overstrike;
+extern int tc_overstrike;
 extern pid_t mypid;
 
 extern const char * myname;

@@ -973,7 +973,7 @@ new_message(int type, const char *msgfmt, ...)
     if (msglen > 0)
     {
 	/* message there already -- can we clear it? */
-	if (!overstrike)
+	if (!tc_overstrike)
 	{
 	    /* yes -- write it and clear to end */
 	    i = strlen(next_msg);
@@ -1041,7 +1041,7 @@ readline(char *buffer, int size, int numeric)
 	if (ch == ch_kill)
 	{
 	    /* kill line -- account for overstriking */
-	    if (overstrike)
+	    if (tc_overstrike)
 	    {
 		msglen += maxcnt;
 	    }
@@ -1090,8 +1090,8 @@ readline(char *buffer, int size, int numeric)
     *ptr = '\0';
 
     /* account for the extra characters in the message area */
-    /* (if terminal overstrikes, remember the furthest they went) */
-    msglen += overstrike ? maxcnt : cnt;
+    /* (if terminal tc_overstrikes, remember the furthest they went) */
+    msglen += tc_overstrike ? maxcnt : cnt;
 
     /* return either inputted number or string length */
     putchar('\r');

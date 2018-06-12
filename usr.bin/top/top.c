@@ -738,7 +738,7 @@ restart:
 	    /* switch out for new display on smart terminals */
 	    if (smart_terminal)
 	    {
-		if (overstrike)
+		if (tc_overstrike)
 		{
 		    reset_display();
 		}
@@ -856,7 +856,7 @@ restart:
 			    putchar('\r');
 				no_command = true;
 			}
-			if (overstrike && !cptr->available_to_dumb)
+			if (tc_overstrike && !cptr->available_to_dumb)
 			{
 			    new_message(MT_standout,
 			    " Command cannot be handled by this terminal");

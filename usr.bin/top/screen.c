@@ -45,7 +45,7 @@
 #include "screen.h"
 #include "top.h"
 
-int  overstrike;
+int  tc_overstrike;
 int  screen_length;
 int  screen_width;
 char ch_erase;
@@ -144,13 +144,13 @@ screen_readtermcap(int interactive)
     }
 
     /* terminals that overstrike need special attention */
-    overstrike = tgetflag("os");
+    tc_overstrike = tgetflag("os");
 
     /* initialize the pointer into the termcap string buffer */
     bufptr = string_buffer;
 
     /* get "ce", clear to end */
-    if (!overstrike)
+    if (!tc_overstrike)
     {
 	tc_clear_line = tgetstr("ce", &bufptr);
     }
@@ -309,7 +309,7 @@ screen_clear(void)
 int
 screen_cleareol(int len)
 {
-    if (smart_terminal && !overstrike && len > 0)
+    if (smart_terminal && !tc_overstrike && len > 0)
     {
 	if (tc_clear_line)
 	{

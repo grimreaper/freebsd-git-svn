@@ -115,7 +115,7 @@ show_help(void)
     printf("Top version FreeBSD, %s\n", copyright);
 	curcmd = all_commands;
 	while (curcmd->c != 0) {
-		if (overstrike && !curcmd->available_to_dumb) {
+		if (tc_overstrike && !curcmd->available_to_dumb) {
 			++curcmd;
 			continue;
 		}
@@ -137,7 +137,7 @@ show_help(void)
 		printf("%s\t- %s\n", keys, curcmd->desc);
 		++curcmd;
 	}
-    if (overstrike)
+    if (tc_overstrike)
     {
 		fputs("\
 				Other commands are also available, but this terminal is not\n\

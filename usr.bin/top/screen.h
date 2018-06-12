@@ -53,14 +53,14 @@ extern char *tc_clear_to_end;
 extern int  screen_length;
 extern int  screen_width;
 
-int		clear_eol(int len);
-void	top_standout(const char *msg);
-void	top_clear(void);
-void	go_home(void);
-void	rescreen_init(void);
-void	screen_getsize(void);
-void	init_termcap(int interactive);
-void	screen_end(void);
-void	screen_init(void);
+int screen_cleareol(int len);
+void screen_clear(void);
+void screen_end(void);
+void screen_getsize(void);
+void screen_home(void);
+void screen_init(void);
+void screen_readtermcap(int interactive);
+void screen_reinit(void);
+void screen_standout(const char *msg);
 
-#endif
+#endif /* _SCREEN_H_ */

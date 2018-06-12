@@ -557,7 +557,7 @@ main(int argc, char *argv[])
     }
 
     /* initialize termcap */
-    init_termcap(interactive);
+    screen_readtermcap(interactive);
 
     /* get the string to use for the process area header */
     header_text = format_header(uname_field);
@@ -798,7 +798,7 @@ restart:
 		    signal(SIGTSTP, tstop);
 
 		    /* reinit screen */
-		    rescreen_init();
+		    screen_reinit();
 		    reset_display();
 		    tstopflag = 0;
 		    goto restart;
@@ -875,7 +875,7 @@ restart:
 				if (system_info.load_avg[0] > LoadMax)
 				{
 				    /* yes, go home for visual feedback */
-				    go_home();
+				    screen_home();
 				    fflush(stdout);
 				}
 				break;
@@ -886,9 +886,9 @@ restart:
 
 			    case CMD_help:
 				reset_display();
-				top_clear();
+				screen_clear();
 				show_help();
-				top_standout("Hit any key to continue: ");
+				screen_standout("Hit any key to continue: ");
 				fflush(stdout);
 				read(0, &ch, 1);
 				break;
@@ -904,9 +904,9 @@ restart:
 				else
 				{
 				    reset_display();
-				    top_clear();
+				    screen_clear();
 				    show_errors();
-				    top_standout("Hit any key to continue: ");
+				    screen_standout("Hit any key to continue: ");
 				    fflush(stdout);
 				    read(0, &ch, 1);
 				}

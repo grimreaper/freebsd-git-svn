@@ -69,7 +69,7 @@ static struct termios new_settings;
 static char is_a_terminal = false;
 
 void
-init_termcap(int interactive)
+screen_readtermcap(int interactive)
 {
     char *bufptr;
     char *PCptr;
@@ -244,7 +244,7 @@ screen_end(void)
 }
 
 void
-rescreen_init(void)
+screen_reinit(void)
 {
     /* install our settings if it is a terminal */
     if (is_a_terminal)
@@ -283,7 +283,7 @@ screen_getsize(void)
 }
 
 void
-top_standout(const char *msg)
+screen_standout(const char *msg)
 {
     if (smart_terminal)
     {
@@ -298,7 +298,7 @@ top_standout(const char *msg)
 }
 
 void
-top_clear(void)
+screen_clear(void)
 {
     if (smart_terminal)
     {
@@ -307,7 +307,7 @@ top_clear(void)
 }
 
 int
-clear_eol(int len)
+screen_cleareol(int len)
 {
     if (smart_terminal && !overstrike && len > 0)
     {
@@ -329,7 +329,7 @@ clear_eol(int len)
 }
 
 void
-go_home(void)
+screen_home(void)
 {
     if (smart_terminal)
     {

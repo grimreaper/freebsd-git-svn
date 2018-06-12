@@ -268,7 +268,7 @@ i_loadave(int mpid, double avenrun[])
     int i;
 
     /* i_loadave also clears the screen, since it is first */
-    top_clear();
+    screen_clear();
 
     /* mpid == -1 implies this system doesn't have an _mpid */
     if (mpid != -1)
@@ -726,13 +726,13 @@ i_message(void)
     }
     if (next_msg[0] != '\0')
     {
-	top_standout(next_msg);
+	screen_standout(next_msg);
 	msglen = strlen(next_msg);
 	next_msg[0] = '\0';
     }
     else if (msglen > 0)
     {
-	(void) clear_eol(msglen);
+	(void) screen_cleareol(msglen);
 	msglen = 0;
     }
 }
@@ -803,7 +803,7 @@ u_header(const char *text __unused)
     {
 	putchar('\n');
 	lastline++;
-	clear_eol(header_length);
+	screen_cleareol(header_length);
 	header_status = OFF;
     }
 }
@@ -921,9 +921,9 @@ u_endscreen(int hi)
 		}
 		else
 		{
-		    /* use clear_eol on each line */
+		    /* use screen_cleareol on each line */
 		    i = hi;
-		    while ((void) clear_eol(strlen(&screenbuf[lineindex(i++)])), i < last_hi)
+		    while ((void) screen_cleareol(strlen(&screenbuf[lineindex(i++)])), i < last_hi)
 		    {
 			putchar('\n');
 		    }
@@ -987,6 +987,9 @@ new_message(int type, const char *msgfmt, ...)
 			clear_eol(msglen - i);
 			msglen = i;
 			next_msg[0] = '\0';
+		screen_cleareol(msglen - i);
+		msglen = i;
+		next_msg[0] = '\0';
 	    }
 	}
     }
@@ -1008,7 +1011,7 @@ new_message(int type, const char *msgfmt, ...)
 void
 clear_message(void)
 {
-    if (clear_eol(msglen) == 1)
+    if (screen_cleareol(msglen) == 1)
     {
 	putchar('\r');
     }
@@ -1238,7 +1241,7 @@ line_update(char *old, char *new, int start, int line)
 	    if (ch == '\0')
 	    {
 		/* at the end--terminate with a clear-to-end-of-line */
-		(void) clear_eol(strlen(old));
+		(void) screen_cleareol(strlen(old));
 	    }
 	    else
 	    {

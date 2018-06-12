@@ -83,11 +83,6 @@ struct system_info
     int    ncpus;
 };
 
-/*
- * the process_select struct tells get_process_info what processes
- * and information we are interested in seeing
- */
-
 struct process_select
 {
     bool idle;		/* show idle processes */

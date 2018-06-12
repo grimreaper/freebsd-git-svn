@@ -57,18 +57,18 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <termcap.h>
 #include <time.h>
 #include <unistd.h>
 
-#include "screen.h"		/* interface to screen package */
-#include "layout.h"		/* defines for screen position layout */
 #include "display.h"
-#include "top.h"
+#include "layout.h"		/* defines for screen position layout */
 #include "machine.h"		/* we should eliminate this!!! */
+#include "screen.h"		/* interface to screen package */
+#include "top.h"
 #include "utils.h"
 
 #ifdef DEBUG

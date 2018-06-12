@@ -63,22 +63,22 @@
 #include <kvm.h>
 #include <math.h>
 #include <paths.h>
-#include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
 #include <vis.h>
 
-#include "top.h"
 #include "display.h"
-#include "machine.h"
-#include "loadavg.h"
-#include "screen.h"
-#include "utils.h"
 #include "layout.h"
+#include "loadavg.h"
+#include "machine.h"
+#include "screen.h"
+#include "top.h"
+#include "utils.h"
 
 #define GETSYSCTL(name, var) getsysctl(name, &(var), sizeof(var))
 #define	SMPUNAMELEN	13

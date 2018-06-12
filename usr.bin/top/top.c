@@ -32,32 +32,32 @@
  * $FreeBSD$
  */
 
-#include <sys/types.h>
-#include <sys/time.h>
 #include <sys/cdefs.h>
 #include <sys/limits.h>
 #include <sys/resource.h>
 #include <sys/select.h>
 #include <sys/signal.h>
+#include <sys/time.h>
+#include <sys/types.h>
 
 #include <assert.h>
 #include <errno.h>
 #include <getopt.h>
 #include <jail.h>
+#include <signal.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <signal.h>
 #include <string.h>
 #include <unistd.h>
 
 #include "commands.h"
 #include "display.h"		/* interface to display package */
+#include "machine.h"
 #include "screen.h"		/* interface to screen package */
 #include "top.h"
-#include "machine.h"
-#include "utils.h"
 #include "username.h"
+#include "utils.h"
 
 /* Size of the stdio buffer given to stdout */
 #define Buffersize	2048

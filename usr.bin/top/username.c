@@ -59,8 +59,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "utils.h"
 #include "username.h"
+#include "utils.h"
 
 struct hash_el {
     int  uid;

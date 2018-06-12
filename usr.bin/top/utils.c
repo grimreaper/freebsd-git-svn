@@ -46,13 +46,16 @@
 #include <sys/sysctl.h>
 #include <sys/user.h>
 
-#include <libutil.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include <fcntl.h>
-#include <paths.h>
 #include <kvm.h>
+#include <libutil.h>
+#include <paths.h>
+#include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+#include <string.h>
+#include <string.h>
 
 int
 atoiwi(const char *str)

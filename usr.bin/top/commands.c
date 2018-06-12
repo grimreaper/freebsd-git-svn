@@ -46,14 +46,14 @@
 #include <errno.h>
 #include <signal.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
 #include "commands.h"
-#include "top.h"
 #include "machine.h"
+#include "top.h"
 
 static int err_compar(const void *p1, const void *p2);
 

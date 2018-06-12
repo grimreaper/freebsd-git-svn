@@ -34,12 +34,12 @@
  *  Paul Vixie, February 1987: converted to use ioctl() instead of stty/gtty.
  */
 
-#include <sys/ioctl.h>
+#include <curses.h>
 #include <stdlib.h>
 #include <string.h>
-#include <termios.h>
-#include <curses.h>
+#include <sys/ioctl.h>
 #include <termcap.h>
+#include <termios.h>
 #include <unistd.h>
 
 #include "screen.h"

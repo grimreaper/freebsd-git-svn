@@ -1,23 +1,37 @@
-/*
- *  Top users/processes display for Unix
- *  Version 3
+/*-
+ * Copyright (c) 1984 through 2008, William LeFebvre
+ * All rights reserved.
  *
- *  This program may be freely redistributed,
- *  but this entire comment MUST remain intact.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *  Copyright (c) 1984, 1989, William LeFebvre, Rice University
- *  Copyright (c) 1989, 1990, 1992, William LeFebvre, Northwestern University
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
  *
- * $FreeBSD$
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *
+ *     * Neither the name of William LeFebvre nor the names of other
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 /*  This file contains the routines that interface to termcap and stty/gtty.
- *
  *  Paul Vixie, February 1987: converted to use ioctl() instead of stty/gtty.
- *
- *  I put in code to turn on the TOSTOP bit while top was running, but I
- *  didn't really like the results.  If you desire it, turn on the
- *  preprocessor variable "TOStop".   --wnl
  */
 
 #include "top.h"

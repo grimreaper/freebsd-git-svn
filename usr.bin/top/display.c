@@ -1,12 +1,33 @@
-/*
- *  Top users/processes display for Unix
- *  Version 3
+/*-
+ * Copyright (c) 1984 through 2008, William LeFebvre
+ * All rights reserved.
  *
- *  This program may be freely redistributed,
- *  but this entire comment MUST remain intact.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *  Copyright (c) 1984, 1989, William LeFebvre, Rice University
- *  Copyright (c) 1989, 1990, 1992, William LeFebvre, Northwestern University
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *
+ *     * Neither the name of William LeFebvre nor the names of other
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * $FreeBSD$
  */
@@ -170,7 +191,7 @@ struct statics *statics;
     int *lp;
     int lines;
     int i;
-    
+
     /* call resize to do the dirty work */
     lines = display_resize();
     if (pcpu_stats)
@@ -190,10 +211,10 @@ struct statics *statics;
     {
 	*lp++ = -1;
     }
-    
+
     return(lines);
 }
-    
+
 int display_init(statics)
 
 struct statics *statics;
@@ -229,7 +250,7 @@ struct statics *statics;
 
 	arc_names = statics->arc_names;
 	carc_names = statics->carc_names;
-	
+
 	/* calculate starting columns where needed */
 	cpustate_total_length = 0;
 	pp = cpustate_names;
@@ -326,7 +347,7 @@ time_t *tod;
     /*
      *  Display the current time.
      *  "ctime" always returns a string that looks like this:
-     *  
+     *
      *	Sun Sep 16 01:03:52 1973
      *      012345678901234567890123
      *	          1         2
@@ -686,7 +707,7 @@ int *stats;
     summary_format(new, stats, carc_names);
     line_update(carc_buffer, new, x_carc, y_carc);
 }
- 
+
 /*
  *  *_swap(stats) - print "Swap: " followed by the swap summary string
  *
@@ -1182,7 +1203,7 @@ static void summary_format(char *str, int *numbers, char **names)
 	    /* is this number a ratio? */
 	    else if (thisname[0] == ':')
 	    {
-		(void) snprintf(rbuf, sizeof(rbuf), "%.2f", 
+		(void) snprintf(rbuf, sizeof(rbuf), "%.2f",
 		    (float)*(numbers - 2) / (float)num);
 		p = strecpy(p, rbuf);
 		p = strecpy(p, thisname);
@@ -1252,7 +1273,7 @@ int line;
 	lastcol = 1;
     }
     old++;
-	
+
     /*
      *  main loop -- check each character.  If the old and new aren't the
      *	same, then update the display.  When the distance from the
@@ -1293,7 +1314,7 @@ int line;
 		/* already there, update position */
 		lastcol++;
 	    }
-		
+
 	    /* write what we need to */
 	    if (ch == '\0')
 	    {
@@ -1308,11 +1329,11 @@ int line;
 	    /* put the new character in the screen buffer */
 	    *old = ch;
 	}
-	    
+
 	/* update working column and screen buffer pointer */
 	newcol++;
 	old++;
-	    
+
     } while (ch != '\0');
 
     /* zero out the rest of the line buffer -- MUST BE DONE! */

@@ -1,13 +1,33 @@
-/*
- *  Top users/processes display for Unix
+/*-
+ * Copyright (c) 1984 through 2008, William LeFebvre
+ * All rights reserved.
  *
- *  This program may be freely redistributed,
- *  but this entire comment MUST remain intact.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- *  Copyright (c) 1984, 1989, William LeFebvre, Rice University
- *  Copyright (c) 1989 - 1994, William LeFebvre, Northwestern University
- *  Copyright (c) 1994, 1995, William LeFebvre, Argonne National Laboratory
- *  Copyright (c) 1996, William LeFebvre, Group sys Consulting
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *
+ *     * Neither the name of William LeFebvre nor the names of other
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * $FreeBSD$
  */
@@ -541,7 +561,7 @@ main(int argc, char *argv[])
 	fprintf(stderr, "%s: can't allocate sufficient memory\n", myname);
 	exit(4);
     }
-    
+
     /* print warning if user requested more processes than we can display */
     if (topn > max_topn)
     {
@@ -610,7 +630,7 @@ restart:
     {
 	int (*compare)(const void * const, const void * const);
 
-	    
+
 	/* get the current stats */
 	get_system_info(&system_info);
 
@@ -666,7 +686,7 @@ restart:
 
 	/* update the header area */
 	(*d_header)(header_text);
-    
+
 	if (topn > 0)
 	{
 	    /* determine number of processes to actually display */
@@ -730,7 +750,7 @@ restart:
 		    d_process = u_process;
 		}
 	    }
-    
+
 	    no_command = Yes;
 	    if (!interactive)
 	    {
@@ -801,7 +821,7 @@ restart:
 		{
 		    int newval;
 		    char *errmsg;
-    
+
 		    /* something to read -- clear the message area first */
 		    clear_message();
 
@@ -841,7 +861,7 @@ restart:
 			    case CMD_redraw:	/* redraw screen */
 				reset_display();
 				break;
-    
+
 			    case CMD_update:	/* merely update display */
 				/* is the load average high? */
 				if (system_info.load_avg[0] > LoadMax)
@@ -851,12 +871,12 @@ restart:
 				    fflush(stdout);
 				}
 				break;
-	    
+
 			    case CMD_quit:	/* quit */
 				quit(0);
 				/*NOTREACHED*/
 				break;
-	    
+
 			    case CMD_help1:	/* help */
 			    case CMD_help2:
 				reset_display();
@@ -866,7 +886,7 @@ restart:
 				fflush(stdout);
 				read(0, &ch, 1);
 				break;
-	
+
 			    case CMD_errors:	/* show errors */
 				if (error_count() == 0)
 				{
@@ -885,7 +905,7 @@ restart:
 				    read(0, &ch, 1);
 				}
 				break;
-	
+
 			    case CMD_number1:	/* new number */
 			    case CMD_number2:
 				new_message(MT_standout,
@@ -915,7 +935,7 @@ restart:
 				    topn = newval;
 				}
 				break;
-	    
+
 			    case CMD_delay:	/* new seconds delay */
 				new_message(MT_standout, "Seconds to delay: ");
 				if ((i = readline(tempbuf1, 8, Yes)) > -1)
@@ -927,7 +947,7 @@ restart:
 				}
 				clear_message();
 				break;
-	
+
 			    case CMD_displays:	/* change display count */
 				new_message(MT_standout,
 					"Displays to show (currently %s): ",
@@ -943,7 +963,7 @@ restart:
 				}
 				clear_message();
 				break;
-    
+
 			    case CMD_kill:	/* kill program */
 				new_message(0, "kill ");
 				if (readline(tempbuf2, sizeof(tempbuf2), No) > 0)
@@ -960,7 +980,7 @@ restart:
 				    clear_message();
 				}
 				break;
-	    
+
 			    case CMD_renice:	/* renice program */
 				new_message(0, "renice ");
 				if (readline(tempbuf2, sizeof(tempbuf2), No) > 0)
@@ -999,7 +1019,7 @@ restart:
 				if (handle_user(tempbuf2, sizeof(tempbuf2)))
 				    no_command = Yes;
 				break;
-	    
+
 			    case CMD_thrtog:
 				ps.thread = !ps.thread;
 				new_message(MT_standout | MT_delayed,
@@ -1100,7 +1120,7 @@ restart:
 				    clear_message();
 				}
 				break;
-	    
+
 			    case CMD_kidletog:
 				ps.kidle = !ps.kidle;
 				new_message(MT_standout | MT_delayed,

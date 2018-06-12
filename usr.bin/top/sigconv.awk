@@ -17,7 +17,7 @@ BEGIN		{
 				    j = sprintf("%d", $3);
 				    str = $2;
 
-				    if (nsig < j) 
+				    if (nsig < j)
 					nsig = j;
 
 				    siglist[j] = sprintf("{ \"%s\",\t%2d },", \
@@ -47,7 +47,7 @@ BEGIN		{
 				}
 
 END				{
-				    for (n = 1; n <= nsig; n++) 
+				    for (n = 1; n <= nsig; n++)
 					if (siglist[n] != "")
 					    printf("    %s\n", siglist[n]);
 

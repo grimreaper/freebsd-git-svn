@@ -29,9 +29,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *
  * $FreeBSD$
  */
+
+#ifndef _UTILS_H
+#define _UTILS_H
 
 #include <unistd.h>
 
@@ -46,3 +48,4 @@ char *format_k(int64_t);
 int string_index(const char *string, const char * const *array);
 int find_pid(pid_t pid);
 
+#endif

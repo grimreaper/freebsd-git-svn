@@ -124,9 +124,6 @@ static const char io_header[] =
 static const char io_Proc_format[] =
     "%5d%*s %-*.*s %6ld %6ld %6ld %6ld %6ld %6ld %6.2f%% %.*s";
 
-/* XXX: build up header instead of statically defining them.
- * This will also allow for a "format string" to be supplied
- * as an argument to top(1) instead of having predefined options */
 static const char smp_header_thr_and_pid[] =
     "  %s%*s %-*.*s  THR PRI NICE   SIZE    RES%*s STATE   C   TIME %7s COMMAND";
 static const char smp_header_id_only[] =

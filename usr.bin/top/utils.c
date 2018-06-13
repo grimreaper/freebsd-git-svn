@@ -35,10 +35,6 @@
  * $FreeBSD$
  */
 
-/*
- *  This file contains various handy utilities used by top.
- */
-
 #include <sys/param.h>
 #include <sys/sysctl.h>
 #include <sys/user.h>

@@ -39,9 +39,6 @@
  *  This file contains various handy utilities used by top.
  */
 
-#include "top.h"
-#include "utils.h"
-
 #include <sys/param.h>
 #include <sys/sysctl.h>
 #include <sys/user.h>
@@ -56,6 +53,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <string.h>
+
+#include "top.h"
+#include "utils.h"
+
 
 int
 atoiwi(const char *str)

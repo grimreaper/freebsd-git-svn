@@ -77,24 +77,7 @@ extern char copyright[];
 
 void quit(int);
 
-/*
- *  The space command forces an immediate update.  Sometimes, on loaded
- *  systems, this update will take a significant period of time (because all
- *  the output is buffered).  So, if the short-term load average is above
- *  "LoadMax", then top will put the cursor home immediately after the space
- *  is pressed before the next update is attempted.  This serves as a visual
- *  acknowledgement of the command.
- */
 #define LoadMax  5.0
-
-/*
- *  "Nominal_TOPN" is used as the default TOPN when
- *  the output is a dumb terminal.  If we didn't do this, then
- *  we will get every
- *  process in the system when running top on a dumb terminal (or redirected
- *  to a file).  Note that Nominal_TOPN is a default:  it can still be
- *  overridden on the command line, even with the value "infinity".
- */
 #define Nominal_TOPN	18
 
 #endif /* TOP_H */

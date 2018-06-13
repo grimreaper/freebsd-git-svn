@@ -201,7 +201,7 @@ argparse(char *line, int *cntp)
  *	"cnt" is size of each array and "diffs" is used for scratch space.
  *	The array "old" is updated on each call.
  *	The routine assumes modulo arithmetic.  This function is especially
- *	useful on for calculating cpu state percentages.
+ *	useful for calculating cpu state percentages.
  */
 
 long
@@ -220,20 +220,20 @@ percentages(int cnt, int *out, long *new, long *old, long *diffs)
     /* calculate changes for each state and the overall change */
     for (i = 0; i < cnt; i++)
     {
-	if ((change = *new - *old) < 0)
-	{
-	    /* this only happens when the counter wraps */
-	    change = (int)
-		((unsigned long)*new-(unsigned long)*old);
-	}
-	total_change += (*dp++ = change);
-	*old++ = *new++;
+		if ((change = *new - *old) < 0)
+		{
+			/* this only happens when the counter wraps */
+			change = (int)
+				((unsigned long)*new-(unsigned long)*old);
+		}
+		total_change += (*dp++ = change);
+		*old++ = *new++;
     }
 
     /* avoid divide by zero potential */
     if (total_change == 0)
     {
-	total_change = 1;
+		total_change = 1;
     }
 
     /* calculate percentages based on overall change, rounding up */
@@ -243,7 +243,6 @@ percentages(int cnt, int *out, long *new, long *old, long *diffs)
 	{
 		*out++ = (int)((*diffs++ * 1000 + half_total) / total_change);
 	}
-
     /* return the total in case the caller wants to use it */
     return(total_change);
 }

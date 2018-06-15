@@ -89,7 +89,7 @@ read_hints(const char *fn, size_t *len)
 		err(1, "Can't fstat %s\n", fn);
 	h = malloc(sb.st_size);
 	if (h == NULL)
-		err(1, "not enough space to read hints file of %ju bytes", (uintmax_t)sb.st_size);
+		err(1, "not enough space to read hints file of %jd bytes", (intmax_t)sb.st_size);
 	if (read(fd, h, sb.st_size) != sb.st_size)
 		err(1, "Can't read in %ju bytes from %s", (uintmax_t)sb.st_size, fn);
 	close(fd);

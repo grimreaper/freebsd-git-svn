@@ -32,6 +32,7 @@
 #include <unistd.h>
 
 #include "commands.h"
+#include "color.h"
 #include "display.h"		/* interface to display package */
 #include "screen.h"		/* interface to screen package */
 #include "top.h"
@@ -569,6 +570,10 @@ main(int argc, char *argv[])
 	topn = smart_terminal ? Largest :
 		    (topn_specified ? Largest : Nominal_TOPN);
     }
+
+	if (smart_terminal) {
+		color_init();
+	}
 
     /* set header display accordingly */
     display_header(topn > 0);

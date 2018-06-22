@@ -192,6 +192,10 @@ or
 \*(lqall\*(rq.
 Boolean flags are toggles.
 A second specification of any of these options will negate the first.
+.Sh "COLORS"
+.Nm will display the header in color if TOPCOLOR is set to an appropriate string.
+The format for TOPCOLOR is a colon separated list of tag=value pairs.
+The value is defined as min,max#fg,bg.
 .Sh "INTERACTIVE MODE"
 When
 .Nm
@@ -376,6 +380,8 @@ close approximation to reality.
 .Bl -tag -width TOP -compact
 .It Pa TOP
 Default set of arguments to
+.It Pa TOPCOLOR
+Colors to use in top header
 .Nm .
 .El
 .Sh SEE ALSO

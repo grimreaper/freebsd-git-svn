@@ -33,9 +33,6 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifdef lint
-static const char sccsid[] = "@(#)cmdtab.c	8.1 (Berkeley) 6/6/93";
-#endif
 
 #include "systat.h"
 #include "extern.h"

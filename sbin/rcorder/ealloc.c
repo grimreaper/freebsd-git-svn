@@ -42,9 +42,7 @@
  */
 
 #include <sys/cdefs.h>
-#ifndef lint
 __RCSID("$NetBSD: ealloc.c,v 1.1.1.1 1999/11/19 04:30:56 mrg Exp $");
-#endif /* not lint */
 
 #include <stdio.h>
 #include <stdlib.h>

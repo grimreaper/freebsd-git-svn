@@ -30,7 +30,6 @@
  * SUCH DAMAGE.
  */
 
-#ifndef lint
 #include <sys/cdefs.h>
 #ifdef __COPYRIGHT
 __COPYRIGHT("@(#) Copyright (c) 1989, 1993\
@@ -45,7 +44,6 @@ __RCSID("$NetBSD: factor.c,v 1.19 2009/08/12 05:54:31 dholland Exp $");
 #ifdef __FBSDID
 __FBSDID("$FreeBSD$");
 #endif
-#endif /* not lint */
 
 /*
  * factor - factor a number into primes

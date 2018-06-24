@@ -37,9 +37,7 @@
  */
 
 #include <sys/cdefs.h>
-#ifndef lint
 __RCSID("$NetBSD: lockd.c,v 1.7 2000/08/12 18:08:44 thorpej Exp $");
-#endif
 
 /*
  * main() function for NFS lock daemon.  Most of the code in this

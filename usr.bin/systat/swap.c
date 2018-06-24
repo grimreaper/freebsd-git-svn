@@ -33,9 +33,6 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifdef lint
-static const char sccsid[] = "@(#)swap.c	8.3 (Berkeley) 4/29/95";
-#endif
 
 /*
  * swapinfo - based on a program of the same name by Kevin Lahey

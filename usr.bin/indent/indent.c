@@ -36,9 +36,7 @@
  */
 
 #if 0
-#ifndef lint
 static char sccsid[] = "@(#)indent.c	5.17 (Berkeley) 6/7/93";
-#endif /* not lint */
 #endif
 
 #include <sys/cdefs.h>

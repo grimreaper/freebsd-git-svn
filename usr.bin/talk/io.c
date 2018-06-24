@@ -33,9 +33,7 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifndef lint
 static const char sccsid[] = "@(#)io.c	8.1 (Berkeley) 6/6/93";
-#endif
 
 /*
  * This file contains the I/O handling and the exchange of

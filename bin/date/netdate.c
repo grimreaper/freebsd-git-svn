@@ -30,9 +30,7 @@
  */
 
 #if 0
-#ifndef lint
 static char sccsid[] = "@(#)netdate.c	8.1 (Berkeley) 5/31/93";
-#endif /* not lint */
 #endif
 
 #include <sys/cdefs.h>

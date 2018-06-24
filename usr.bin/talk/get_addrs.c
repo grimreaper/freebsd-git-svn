@@ -33,9 +33,7 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifndef lint
 static const char sccsid[] = "@(#)get_addrs.c	8.1 (Berkeley) 6/6/93";
-#endif
 
 #include <err.h>
 #include <netdb.h>

@@ -32,9 +32,7 @@
  * SUCH DAMAGE.
  */
 
-#ifndef	lint
 static const char _rcsid[] = "$KAME: route6d.c,v 1.104 2003/10/31 00:30:20 itojun Exp $";
-#endif
 
 #include <sys/param.h>
 #include <sys/file.h>

@@ -31,15 +31,11 @@
  */
 
 #if 0
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1994\n\
 	The Regents of the University of California.  All rights reserved.\n";
-#endif /* not lint */
 
-#ifndef lint
 static const char sccsid[] = "@(#)random.c	8.5 (Berkeley) 4/5/94";
-#endif /* not lint */
 #endif
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");

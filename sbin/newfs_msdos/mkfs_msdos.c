@@ -25,10 +25,8 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef lint
 static const char rcsid[] =
   "$FreeBSD$";
-#endif /* not lint */
 
 #include <sys/param.h>
 #include <sys/fdcio.h>

@@ -32,11 +32,9 @@
  * SUCH DAMAGE.
  */
 
-#ifndef lint
 #if 0
 static char sccsid[] = "@(#)trap.c	8.5 (Berkeley) 6/5/95";
 #endif
-#endif /* not lint */
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
 

@@ -37,9 +37,7 @@
 /* #ident	"@(#)check_bound.c	1.15	93/07/05 SMI" */
 
 #if 0
-#ifndef lint
 static	char sccsid[] = "@(#)check_bound.c 1.11 89/04/21 Copyr 1989 Sun Micro";
-#endif
 #endif
 
 /*

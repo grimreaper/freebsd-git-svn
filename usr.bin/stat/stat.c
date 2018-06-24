@@ -31,10 +31,8 @@
 
 #include <sys/cdefs.h>
 #if 0
-#ifndef lint
 __RCSID("$NetBSD: stat.c,v 1.33 2011/01/15 22:54:10 njoly Exp $"
 "$OpenBSD: stat.c,v 1.14 2009/06/24 09:44:25 sobrado Exp $");
-#endif
 #endif
 
 __FBSDID("$FreeBSD$");

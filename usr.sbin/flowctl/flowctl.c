@@ -29,10 +29,8 @@
  * $SourceForge: flowctl.c,v 1.15 2004/08/31 20:24:58 glebius Exp $
  */
 
-#ifndef lint
 static const char rcs_id[] =
     "@(#) $FreeBSD$";
-#endif
 
 #include <sys/types.h>
 #include <sys/time.h>

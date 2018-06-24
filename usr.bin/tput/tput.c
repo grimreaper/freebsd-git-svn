@@ -33,15 +33,11 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1980, 1988, 1993\n\
 	The Regents of the University of California.  All rights reserved.\n";
-#endif
 
-#ifndef lint
 static const char sccsid[] = "@(#)tput.c	8.2 (Berkeley) 3/19/94";
-#endif
 
 #include <termios.h>
 

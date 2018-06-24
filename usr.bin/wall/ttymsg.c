@@ -33,9 +33,7 @@
 
 __FBSDID("$FreeBSD$");
 
-#ifndef lint
 static const char sccsid[] = "@(#)ttymsg.c	8.2 (Berkeley) 11/16/93";
-#endif
 
 #include <sys/types.h>
 #include <sys/uio.h>

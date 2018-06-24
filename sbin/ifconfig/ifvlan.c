@@ -59,10 +59,8 @@
 
 #include "ifconfig.h"
 
-#ifndef lint
 static const char rcsid[] =
   "$FreeBSD$";
-#endif
 
 #define	NOTAG	((u_short) -1)
 

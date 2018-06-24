@@ -32,16 +32,12 @@
  * SUCH DAMAGE.
  */
 
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1989, 1993\n\
 	The Regents of the University of California.  All rights reserved.\n";
-#endif
 
 #if 0
-#ifndef lint
 static char sccsid[] = "@(#)write.c	8.1 (Berkeley) 6/6/93";
-#endif
 #endif
 
 #include <sys/cdefs.h>

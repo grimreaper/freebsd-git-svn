@@ -37,9 +37,7 @@
 /* #ident	"@(#)rpcbind.c	1.19	94/04/25 SMI" */
 
 #if 0
-#ifndef lint
 static	char sccsid[] = "@(#)rpcbind.c 1.35 89/04/21 Copyr 1984 Sun Micro";
-#endif
 #endif
 
 /*

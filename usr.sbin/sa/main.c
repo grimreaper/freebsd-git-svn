@@ -31,11 +31,9 @@
  */
 
 #if 0
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1994 Christopher G. Demetriou\n\
  All rights reserved.\n";
-#endif
 #endif
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");

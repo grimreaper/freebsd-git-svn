@@ -36,10 +36,8 @@
  */
 
 #if 0
-#ifndef lint
 static const char copyright[] =
 	"@(#) Copyright (c) 1996 Jason R. Thorpe.  All rights reserved.";
-#endif /* not lint */
 #endif
 
 #include <sys/cdefs.h>

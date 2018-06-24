@@ -34,9 +34,7 @@
 
 #include <sys/cdefs.h>
 #if 0
-#ifndef lint
 __RCSID("$NetBSD: asa.c,v 1.11 1997/09/20 14:55:00 lukem Exp $");
-#endif
 #endif
 __FBSDID("$FreeBSD$");
 

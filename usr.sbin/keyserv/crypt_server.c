@@ -42,10 +42,8 @@
 #include <rpc/des.h>
 #include "crypt.h"
 
-#ifndef lint
 static const char rcsid[] =
   "$FreeBSD$";
-#endif /* not lint */
 
 /*
  * The U.S. government stupidly believes that a) it can keep strong

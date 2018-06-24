@@ -36,9 +36,7 @@
  */
 
 #include <sys/cdefs.h>
-#ifndef lint
 __RCSID("$NetBSD: lock_proc.c,v 1.7 2000/10/11 20:23:56 is Exp $");
-#endif
 
 #include <sys/param.h>
 #include <sys/socket.h>

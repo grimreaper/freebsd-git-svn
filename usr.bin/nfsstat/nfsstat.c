@@ -60,19 +60,15 @@
  */
 
 
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1983, 1989, 1993\n\
 	The Regents of the University of California.  All rights reserved.\n";
-#endif /* not lint */
 
-#ifndef lint
 #if 0
 static char sccsid[] = "@(#)nfsstat.c	8.2 (Berkeley) 3/31/95";
 #endif
 static const char rcsid[] =
   "$FreeBSD$";
-#endif /* not lint */
 
 #include <sys/param.h>
 #include <sys/module.h>

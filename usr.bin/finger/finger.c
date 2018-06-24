@@ -42,16 +42,12 @@
  *	login time is < 6 days.
  */
 
-#ifndef lint
 static const char copyright[] =
 "@(#) Copyright (c) 1989, 1993\n\
 	The Regents of the University of California.  All rights reserved.\n";
-#endif /* not lint */
 
 #if 0
-#ifndef lint
 static char sccsid[] = "@(#)finger.c	8.5 (Berkeley) 5/4/95";
-#endif
 #endif
 
 #include <sys/cdefs.h>

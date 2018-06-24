@@ -32,9 +32,7 @@
  */
 
 #include <sys/cdefs.h>
-#ifndef lint
 __RCSID("$NetBSD: fsutil.c,v 1.15 2006/06/05 16:52:05 christos Exp $");
-#endif /* not lint */
 __FBSDID("$FreeBSD$");
 
 #include <sys/param.h>

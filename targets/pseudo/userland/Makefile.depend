@@ -272,7 +272,6 @@ DIRDEPS+= \
 	usr.bin/mkfifo \
 	usr.bin/mkimg \
 	usr.bin/mklocale \
-	usr.bin/mkstr \
 	usr.bin/mktemp \
 	usr.bin/mkuzip \
 	usr.bin/msgs \
@@ -401,7 +400,6 @@ DIRDEPS+= \
 	usr.bin/xargs \
 	usr.bin/xinstall \
 	usr.bin/xo \
-	usr.bin/xstr \
 	usr.bin/xz \
 	usr.bin/xzdec \
 	usr.bin/yacc \

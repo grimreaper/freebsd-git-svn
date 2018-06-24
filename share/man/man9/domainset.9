@@ -86,7 +86,7 @@ memory is accessed from many CPUs that are not in the local domain.
 Memory is allocated from the node in the
 .Vt prefer
 member.  The preferred node must be set in the allowed mask.
-If the preferred node is out of memory the allocation falls back to 
+If the preferred node is out of memory the allocation falls back to
 round-robin among allowed sets.
 .It Dv DOMAINSET_POLICY_INTERLEAVE
 Memory is allocated in a striped fashion with multiple pages
@@ -114,7 +114,7 @@ The
 function is provided as a convenience for modifying or viewing domainsets
 that are not accessible via
 .Xr cpuset 2 .
-It is intended for use with 
+It is intended for use with
 .Xr sysctl 9 .
 .Pp
 .Sh SEE ALSO

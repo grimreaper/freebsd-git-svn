@@ -263,11 +263,11 @@ specify an argument for the
 and
 .Dv dtor
 functions, respectively.
-The 
+The
 .Fn uma_zalloc_domain
 function allows callers to specify a fixed
 .Xr numa 9 domain to allocate from.  This uses a guaranteed but slow path in
-the allocator which reduces concurrency.  The 
+the allocator which reduces concurrency.  The
 .Fn uma_zfree_domain
 function should be used to return memory allocated in this fashion.  This
 function infers the domain from the pointer and does not require it as an

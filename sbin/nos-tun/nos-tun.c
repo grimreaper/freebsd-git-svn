@@ -84,8 +84,8 @@ static struct ifaliasreq ifra;
 static struct ifreq ifrq;
 
 /* Global descriptors */
-int net;                          /* socket descriptor */
-int tun;                          /* tunnel descriptor */
+static int net;                          /* socket descriptor */
+static int tun;                          /* tunnel descriptor */
 
 static void usage(void);
 
@@ -94,7 +94,7 @@ Set_address(char *addr, struct sockaddr_in *sin)
 {
   struct hostent *hp;
 
-  bzero((char *)sin, sizeof(struct sockaddr));
+  memset(sin, 0, sizeof(struct sockaddr));
   sin->sin_family = AF_INET;
   if((sin->sin_addr.s_addr = inet_addr(addr)) == INADDR_NONE) {
     hp = gethostbyname(addr);
@@ -124,8 +124,8 @@ tun_open(char *dev_name, struct sockaddr *ouraddr, char *theiraddr)
   /*
    * At first, name the interface.
    */
-  bzero((char *)&ifra, sizeof(ifra));
-  bzero((char *)&ifrq, sizeof(ifrq));
+  memset(&ifra, 0, sizeof(ifra));
+  memset(&ifrq, 0, sizeof(ifrq));
 
   strncpy(ifrq.ifr_name, dev_name+5, IFNAMSIZ);
   strncpy(ifra.ifra_name, dev_name+5, IFNAMSIZ);
@@ -223,9 +223,9 @@ Finish(int signum)
   /*
    *  Delete addresses for interface
    */
-  bzero(&ifra.ifra_addr, sizeof(ifra.ifra_addr));
-  bzero(&ifra.ifra_broadaddr, sizeof(ifra.ifra_addr));
-  bzero(&ifra.ifra_mask, sizeof(ifra.ifra_addr));
+  memset(&ifra.ifra_addr, 0, sizeof(ifra.ifra_addr));
+  memset(&ifra.ifra_broadaddr, 0, sizeof(ifra.ifra_addr));
+  memset(&ifra.ifra_mask, 0, sizeof(ifra.ifra_addr));
   if (ioctl(s, SIOCDIFADDR, &ifra) < 0) {
     syslog(LOG_ERR,"can't delete interface's addresses - %m");
   }
